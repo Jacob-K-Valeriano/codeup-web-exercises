@@ -19,7 +19,7 @@
 
     console.log(person.firstName);
     console.log(person.lastName);
-
+    console.log("-------------------------------------------------------------------");
 
     /**
      * TODO:
@@ -32,13 +32,12 @@
      */
 
 
-    person.sayHello = function (){
+    person.sayHello = function () {
         return "Hello from " + person.firstName + " " + person.lastName + "!"
     };
 
     console.log(person.sayHello());
-
-
+    console.log("-------------------------------------------------------------------");
 
 
     /** TODO:
@@ -79,27 +78,28 @@
     for (var i = 0; i < shoppers.length; i += 1) {
         console.log(shoppers[i].name);
     }
-
+    console.log("-------------------------------------------------------------------");
 
     // ----------------------------------------------------
     //     AMOUNT BEFORE DISCOUNT
 
-    shoppers.forEach(function(shoppers) {
+    shoppers.forEach(function (shoppers) {
         console.log(shoppers.name + "'s original amount before discount is " + "$" + shoppers.amount);
 
 
         // ----------------------------------------------------
         //     DISCOUNT AND FINAL PRICE
 
-        if(shoppers.amount > 200) {
+        if (shoppers.amount > 200) {
             console.log(shoppers.name + " receives a 12% discount.");
             console.log(shoppers.name + "'s discounted price is $" + (shoppers.amount - (shoppers.amount * .12)));
-        }else {
+            console.log("-------------------------------------------------------------------");
+        } else {
             console.log(shoppers.name + " does not qualify for a discount.")
             console.log(shoppers.name + "'s final price is $" + shoppers.amount);
+            console.log("-------------------------------------------------------------------");
         }
     });
-
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -116,6 +116,7 @@
 
     var books = [
         {
+
             title: "Smite",
             author: {
                 firstName: "Hi-Rez",
@@ -123,6 +124,7 @@
             }
         },
         {
+
             title: "Parry Hotter",
             author: {
                 firstName: "R.K.",
@@ -130,6 +132,7 @@
             }
         },
         {
+
             title: "Gunger Hames",
             author: {
                 firstName: "Cuzanne",
@@ -137,6 +140,7 @@
             }
         },
         {
+
             title: "Rord of the Lings",
             author: {
                 firstName: "T.R.R.",
@@ -144,6 +148,7 @@
             }
         },
         {
+
             title: "Fum of all SEARS",
             author: {
                 firstName: "Com",
@@ -152,9 +157,6 @@
         }
 
     ];
-
-
-
 
     /**
      * TODO:
@@ -180,16 +182,17 @@
      *      ---
      *      ...
      */
+    // alt way
+    // console.log('Book #1');
+    // console.log('Title:' + books[0].title);
+    // console.log('Author: ' + books[0].author.firstName + ' ' + books[0].author.lastName)
 
 
-    for (var i = 0; i < books.length; i += 1) {
-
+    for (var i = 0, len = books.length; i < len; i++) {
     }
-
-    books.forEach(function(books) {
-        console.log("Book #" + " " + books.title + " " + books.author.firstName + " "  +books.author.lastName);
-    })
-
+    books.forEach(function (books, index) {
+        console.log("Book #" + (index + 1) + " " + "Title:" + books.title + " Author: " + books.author.firstName + " " + books.author.lastName);
+    });
 
 
     /**
@@ -203,5 +206,26 @@
      *   `showBookInfo` function.
      */
 
-})();
+    function createBook(title, author) {
+        var nameArr = author.split(' ');
+        var firstName = nameArr[0];
+        var lastName = nameArr[1];
+        return {
+            title: title,
+            author: {
+                firstName: firstName,
+                lastname: lastName
+            }
+        }
+    }
+
+    let booksUsingFunction =[
+        createBook('Title 1', 'John1 Smith1'),
+        createBook('Title 1', 'John1 Smith1'),
+        createBook('Title 1', 'John1 Smith1')
+
+
+]
+    });
+
 
