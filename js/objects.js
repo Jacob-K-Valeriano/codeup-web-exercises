@@ -11,12 +11,14 @@
      *  > console.log(person.firstName) // "Rick"
      *  > console.log(person.lastName) // "Sanchez"
      */
-
-    var person = {};
+        // https://javascript.info/object-methods R E F E R E N C E
+    let person = {};
     person.firstName = "Jacob";
     person.lastName = "Valeriano";
-    console.log(person.firstName)
-    console.log(person.lastName)
+
+
+    console.log(person.firstName);
+    console.log(person.lastName);
 
 
     /**
@@ -29,10 +31,12 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    person.sayHello = function () {
-        alert ("hello ! " + person.firstName + " " + person.lastName  );
+
+    person.sayHello = function (){
+        return "Hello from " + person.firstName + " " + person.lastName + "!"
     };
 
+    console.log(person.sayHello());
 
 
 
@@ -43,19 +47,59 @@
      * discount. Write a JS program, using conditionals, that logs to the
      * browser, how much Ryan, Cameron and George need to pay. We know that
      * Cameron bought $180, Ryan $250 and George $320. Your program will have to
-     * display a line with the name of the person, the amount before the
-     * discount, the discount, if any, and the amount after the discount.
+     * display a line with the
+     *
+     *
+     * 1.) name of the person,
+     * 2.) the amount before the discount,
+     * 3.) the discount, if any,
+     * 4.) and the amount after the discount.
      *
      * Uncomment the lines below to create an array of objects where each object
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+        // function discountedPrice() {
+        //     if(shoppers.amount > 200) {
+        //         return ((shoppers.amount * .12) + shoppers.amount);
+        //     }
+        // }
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+
+    var shoppers = [
+            {name: 'Cameron', amount: 180},     //
+            {name: 'Ryan', amount: 250},
+            {name: 'George', amount: 320}
+        ];
+
+
+    // ----------------------------------------------------
+    //     NAMES
+
+    for (var i = 0; i < shoppers.length; i += 1) {
+        console.log(shoppers[i].name);
+    }
+
+
+    // ----------------------------------------------------
+    //     AMOUNT BEFORE DISCOUNT
+
+    shoppers.forEach(function(shoppers) {
+        console.log(shoppers.name + "'s original amount before discount is " + "$" + shoppers.amount);
+
+
+        // ----------------------------------------------------
+        //     DISCOUNT AND FINAL PRICE
+
+        if(shoppers.amount > 200) {
+            console.log(shoppers.name + " receives a 12% discount.");
+            console.log(shoppers.name + "'s discounted price is $" + (shoppers.amount - (shoppers.amount * .12)));
+        }else {
+            console.log(shoppers.name + " does not qualify for a discount.")
+            console.log(shoppers.name + "'s final price is $" + shoppers.amount);
+        }
+    });
+
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -69,6 +113,48 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    var books = [
+        {
+            title: "Smite",
+            author: {
+                firstName: "Hi-Rez",
+                lastName: "Studios"
+            }
+        },
+        {
+            title: "Parry Hotter",
+            author: {
+                firstName: "R.K.",
+                lastName: "Jowling"
+            }
+        },
+        {
+            title: "Gunger Hames",
+            author: {
+                firstName: "Cuzanne",
+                lastName: "Sollins"
+            }
+        },
+        {
+            title: "Rord of the Lings",
+            author: {
+                firstName: "T.R.R.",
+                lastName: "Jolkien"
+            }
+        },
+        {
+            title: "Fum of all SEARS",
+            author: {
+                firstName: "Com",
+                lastName: "Tlancy"
+            }
+        }
+
+    ];
+
+
+
 
     /**
      * TODO:
@@ -95,6 +181,17 @@
      *      ...
      */
 
+
+    for (var i = 0; i < books.length; i += 1) {
+
+    }
+
+    books.forEach(function(books) {
+        console.log("Book #" + " " + books.title + " " + books.author.firstName + " "  +books.author.lastName);
+    })
+
+
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -107,3 +204,4 @@
      */
 
 })();
+
