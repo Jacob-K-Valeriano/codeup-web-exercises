@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>List inside a list</h3>
+<hr>
+<ol>
+    <li>Coffee</li>
+    <li>Tea
+        <ul>
+            <li>Black tea</li>
+            <li>Green tea</li>
+        </ul>
+    </li>
+    <li>Milk</li>
+</ol>
+<hr>
+<h3>List inside a list inside a list</h3>
+<ul>
+    <li>Coffee</li>
+    <li>Tea
+        <ol>
+            <li>Black tea</li>
+            <li>Green tea
+                <ol>
+                    <li>China</li>
+                    <li>Africa</li>
+                </ol>
+            </li>
+        </ol>
+    </li>
+    <li>Milk</li>
+</ul>
+<hr>
+<h4>Generate into a list</h4>
+
+<input id="enter" type="text">
+<input type="button" value="Enter name" onclick="displayUserName()">
+<br>
+<br>
+<div id="name"><ol></ol></div>
+<script src="js/lists.js"script></script>
+</body>
+</html>
