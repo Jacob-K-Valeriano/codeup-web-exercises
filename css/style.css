@@ -1,0 +1,120 @@
+h1.fancy-header {
+    padding: 60px;
+    text-align: center;
+    background: steelblue;
+    color: white;
+    font-size: 30px;
+}
+h2.fancy-header {
+    color: purple;
+    text-decoration: underline;
+}
+
+h2.core {
+    color: red;
+    text-decoration: underline;
+    padding: 10px;
+    text-align: center;
+    background: lightslategrey;
+    font-size: 20px;
+    opacity: 80%;
+
+}
+h2.process {
+    color: blue;
+    text-decoration: underline;
+    padding: 10px;
+    text-align: center;
+    background: lightslategrey;
+    font-size: 20px;
+    opacity: 80%;
+
+}
+h2.vision {
+    color: gold;
+    text-decoration: underline;
+    padding: 10px;
+    text-align: center;
+    background: lightslategrey;
+    font-size: 20px;
+    opacity: 80%;
+
+}
+h2.cvision {
+    color: maroon;
+    text-decoration: underline;
+
+}
+h2.oproduct {
+    color: deepskyblue;
+    text-decoration: underline;
+
+}
+body {
+    background-color: lightblue;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+
+
+}
+ul {
+    text-align: center;
+}
+body {
+    background: url(../img/stark.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.images {
+    transition: transform 1s;
+    text-align: center;
+
+}
+.suit1hover:hover {
+transform: scale(1.25);
+}
+.suit2hover:hover {
+    transform: scale(1.25);
+}
+.suit3hover:hover {
+    transform: scale(1.25);
+}
+.suit4hover:hover {
+    transform: scale(1.25);
+}
+.typewriter  {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 5s steps(75, end),
+            blink-caret .5s step-end infinite;
+
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange }
+}
+
+
+
+
+
