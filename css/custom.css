@@ -1,0 +1,23 @@
+* {
+    font-family: "sans-serif", "Comic Sans MS";
+
+
+}
+.navbar-brand {
+    margin-left: 17em;
+}
+
+.jumbotron {
+    background-image: url("../img/pizza.png");
+    background-size: cover;
+    margin: 0;
+    width: 100%;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    opacity: 70%;
+    width: 100%;
+}
