@@ -1,3 +1,6 @@
+body {
+font-family: sans-serif, Ubuntu;
+}
 .container {
     margin:0;
     padding:0;
@@ -6,6 +9,7 @@
 h1 {
     display: flex;
     justify-content: center;
+
 }
 
 #softwarehead {
@@ -13,13 +17,35 @@ h1 {
     justify-content: center;
 }
 
+#darkg {
+    background: #2B2929;
+    color: white;
+}
+
 #icebreak {
     display: flex;
     justify-content: center;
     text-align: center;
+    font-style: italic;
+
 }
 
+#github {
+    background: white;
+}
+#linkedin {
+    background: white;
+}
+#telephone {
+    background: white;
+}
+#envelope {
+    background: white;
+}
+.container {
+    margin-left:20px;
 
+}
 #contactinfo.row {
     display: flex;
     text-align: center;
@@ -28,8 +54,40 @@ h1 {
 
 hr {
     border: none;
-    height: 12px;
+    height: 15px;
     background:lightskyblue;
-    margin-bottom: 20px;
+    margin-bottom:0px;
+    margin-top: 0;
 }
 
+#color1 {
+    background: teal;
+    margin-bottom: 0;
+    color: white;
+}
+#color2 {
+    background: teal;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+}
+#color3 {
+    background: teal;
+    margin-top: 0;
+    color: white;
+}
+#teal1 {
+    color: teal;
+    font-weight: bold;
+}
+#teal2 {
+    color: teal;
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: bold;
+}
+h5 {
+    font-weight: bold;
+}

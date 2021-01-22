@@ -68,6 +68,31 @@ console.log(analyzeColor('red'));
  * Refactor your above function to use a switch-case statement
  */
 
+function analyzeColorSwitch(color) {
+    switch (color) {
+        case 'blue':
+            return 'blue is the color of the sky';
+        case 'red':
+            return 'Strawberries are red';
+        default:
+            return 'I don\'t know anything about ' + color;
+    }
+}
+
+function analyzeColorSwitchWithBreak(color) {
+    var colorMsg;
+    switch (color) {
+        case 'blue':
+            colorMsg = 'blue is the color of the sky';
+            break;
+        case 'red':
+            colorMsg = 'Strawberries are red';
+            break;
+        default:
+            colorMsg = 'I don't know anything about ' + color;
+    }
+    return colorMsg;
+}
 
 
 
@@ -102,6 +127,32 @@ alert((analyzeColor(colorAnswer)));
  * return value.
  */
 
+function calculateTotal(luckyNumber, totalAmount) {
+    var discountNumber;
+    switch (luckyNumber) {
+        case 0:
+            discountNumber = 0;
+            break;
+        case 1:
+            discountNumber = .1;
+            break;
+        case 2:
+            discountNumber = .25;
+            break;
+        case 3:
+            discountNumber = .35;
+            break;
+        case 4:
+            discountNumber = .5;
+            break;
+        case 5:
+            discountNumber = 1;
+            break;
+        default:
+            console.log('invalid input');
+    }
+    return totalAmount - (discountNumber * totalAmount);
+}
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -128,3 +179,41 @@ alert((analyzeColor(colorAnswer)));
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+function isNumeric(input) {
+    return !isNaN(input);
+}
+
+function createEvenOddMessage(number) {
+    return (number % 2 === 0) ? 'Number is even.' : 'Number is odd';
+}
+
+function createNumberPlus100Message(number) {
+    return number + ' plus 100 is ' + (number + 100);
+}
+
+function createNegativePositiveMessage(number) {
+    return (number < 0) ? 'Number is negative' : 'Number is positive';
+}
+
+function getUserNumAndInfo() {
+    var userWillEnterNumber = confirm('Click OK to enter a number');
+    var userNumber;
+    if (userWillEnterNumber) {
+        userNumber = parseFloat(prompt('Please enter a number'));
+        // if the user input is a number
+        if (isNumeric(userNumber)) {
+            // alert even/odd message
+            alert(createEvenOddMessage(userNumber));
+            // alert number plus 100
+            alert(createNumberPlus100Message(userNumber));
+            // alert negative / positive message
+            alert(createNegativePositiveMessage(userNumber));
+        } else {
+            // alert not a number
+            alert('Input not a number!');
+        }
+    }
+}
+
+getUserNumAndInfo();

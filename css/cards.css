@@ -1,0 +1,75 @@
+.card {
+    border: none;
+}
+
+
+.dot1 {
+    background-color: #E6563B;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: inline-block;
+
+}
+.dot2 {
+    background-color: #EB9D3A;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot3 {
+    background-color: #7CB06C;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot4 {
+    background-color: #00ABA9;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.design {
+    width: 500px;
+    height: 500px;
+    line-height: 500px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    background-color: #E6563B;
+}
+.develop {
+    width: 500px;
+    height: 500px;
+    line-height: 500px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    background: #DEA03D;
+}
+.support {
+    width: 500px;
+    height: 500px;
+    line-height: 500px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    background: #7CB06C;
+}
+.host {
+    width: 500px;
+    height: 500px;
+    line-height: 500px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    background: #00ABA9;
+}
