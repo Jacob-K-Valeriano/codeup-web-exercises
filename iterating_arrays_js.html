@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Iterating Arrays JS</title>
+</head>
+<body>
+<script>
+
+    var names = [ 'Jacob', 'Otis', 'Nala', 'Reece', 'Kobe'];
+    console.log("There are " + names.length + " names in the names array.")
+
+    console.log("For Loop:");
+
+    for (var i = 0.; i < names.length; i++) {
+        names[i]
+        console.log("Name at index " + i + " is " + names[i])
+    }
+
+    console.log("ForEach loop:");
+
+    names.forEach(function (element, index, array) {
+        console.log('The name at index ' + index + ' is: ' +
+            element);
+    });
+
+
+</script>
+
+</body>
+</html>
