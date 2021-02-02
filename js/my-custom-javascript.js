@@ -4,7 +4,7 @@ $(document).ready(function() {
         alert( 'The DOM has finished loading!' );
 
 
-
+        // ID SELECTORS
         // var content1 = $('.heading').css('color', 'red');
         //
         //
@@ -13,8 +13,22 @@ $(document).ready(function() {
         //
         // var content3 = $('#p3').css('color', 'gold');
 
-    // INSERT JAVASCRIPT CODE SAMPLE HERE
 
-        var border = $('.codeup').css({'border': '1px solid red'})
+        // CLASS SELECTORS
+        // var border = $('.codeup').css({'border': '1px solid red'})
 
+
+        // ELEMENT SELECTORS
+        var fontSize = $('.changeSize').css({'font-size': '20px'})
+
+        var highlight1 = $('.codeup').css('background-color', 'red');
+
+
+        var highlight2 = $('.par').css('background-color', 'blue');
+
+
+        var highlight3 = $('.list').css('background-color', 'gold');
+
+        var alertH1 = $('#hdg1').html();
+        alert('ALERT H1');
 });
