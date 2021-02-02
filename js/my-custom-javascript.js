@@ -19,16 +19,28 @@ $(document).ready(function() {
 
 
         // ELEMENT SELECTORS
-        var fontSize = $('.changeSize').css({'font-size': '20px'})
+        // var fontSize = $('.changeSize').css({'font-size': '20px'})
+        //
+        // var highlight1 = $('.codeup').css('background-color', 'red');
+        //
+        //
+        // var highlight2 = $('.par').css('background-color', 'blue');
+        //
+        //
+        // var highlight3 = $('.list').css('background-color', 'gold');
+        //
+        // var alertH1 = $('#hdg1').html();
+        // alert('ALERT H1');
+        //
 
-        var highlight1 = $('.codeup').css('background-color', 'red');
+        // MULTIPLE SELECTORS
+           var combined = $('h1, p, ul').css({
+                   'background-color': 'blue',
+                   'border': '5px solid gold',
+                   'color': 'white',
+                   'font-size': '20px',
+
+           });
 
 
-        var highlight2 = $('.par').css('background-color', 'blue');
-
-
-        var highlight3 = $('.list').css('background-color', 'gold');
-
-        var alertH1 = $('#hdg1').html();
-        alert('ALERT H1');
 });
