@@ -1,46 +1,80 @@
 "use strict"
 
 $(document).ready(function() {
-        alert( 'The DOM has finished loading!' );
+        // alert( 'The DOM has finished loading!' );
 
 
         // ID SELECTORS
-        // var content1 = $('.heading').css('color', 'red');
-        //
-        //
-        // var content2 = $('#p2').css('color', 'blue');
-        //
-        //
-        // var content3 = $('#p3').css('color', 'gold');
+        // content1
+        // $('#hdg1').css('color', 'red');
+        // //
+        // //
+        // // content2
+        // $('#p2').css('color', 'blue');
+        // //
+        // //
+        // // content3
+        // $('#p3').css('color', 'gold');
 
 
         // CLASS SELECTORS
-        // var border = $('.codeup').css({'border': '1px solid red'})
+        // border
+        // $('.codeup').css({'border': '1px solid red'})
 
 
         // ELEMENT SELECTORS
-        // var fontSize = $('.changeSize').css({'font-size': '20px'})
+        // fontSize
+        // $('.changeSize').css('font-size', '20px')
         //
-        // var highlight1 = $('.codeup').css('background-color', 'red');
+        // // highlight1
+        //     $('h1').css('background-color', 'red');
         //
         //
-        // var highlight2 = $('.par').css('background-color', 'blue');
+        // // highlight2
+        // $('.par').css('background-color', 'blue');
         //
         //
-        // var highlight3 = $('.list').css('background-color', 'gold');
+        // // highlight3
+        // $('.list').css('background-color', 'gold');
         //
-        // var alertH1 = $('#hdg1').html();
+        // alertH1
+        // $('#hdg1').html();
         // alert('ALERT H1');
         //
+        // alert($('#hdg1').html());
+
+
 
         // MULTIPLE SELECTORS
-           var combined = $('h1, p, ul').css({
-                   'background-color': 'blue',
-                   'border': '5px solid gold',
-                   'color': 'white',
-                   'font-size': '20px',
+        //    var combined =
+        // //
+        //        $('h1, p, li').css({
+        //            'background-color': 'skyblue',
+        //            'border': '5px solid gold',
+        //            'color': 'white',
+        //            'font-size': '30px',
+        //
+        //    });
 
-           });
+        // MOUSE EVENTS
+         $('#hdg1').click(
+        function() {
+            $(this).css('background-color', 'purple');
+        });
+
+        $('p').dblclick(
+        function() {
+            $(this).css('font-size', '18px');
+        });
+
+        $('li').hover(
+            function() {
+                $(this).css('color', 'red');
+            },
+            function() {
+                $(this).css('color', 'black');
+            }
+        );
 
 
 });
