@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>jQuery Faq</title>
-
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="css/jquery_faq.css">
 </head>
+
 <body>
     <h1>10 Faqs about Yellowstone</h1>
 
@@ -42,15 +44,76 @@
     </dl>
 
 
-    <button>Toggle</button>
+
+    <h3 class="national-parks-heading">Haleakalā National Park</h3>
+    <ul class="lists">
+        <li>The only National Park completely surrounded by a boundary fence.</li>
+        <li> Silverswords, yuccalike plants that take as long as 50 years to flower once and then die, are found in the park</li>
+        <li>The 47-square-mile (122-square-km) park now includes that volcanic crater, Kipahulu Valley (added 1951), and the pools of the ‘Ohe‘o Gulch area (added 1969) on the eastern slope.</li>
+        <li>Haleakalā is estimated to be around 1 million years old. </li>
+    </ul>
+
+    <h3 class="national-parks-heading">Great Basin National Park</h3>
+    <ul class="lists">
+        <li>The difference between Great Basin National Park's highest and lowest trails is more than a mile – 6,235 feet, to be exact. The highest point in the park is the pinnacle of Wheeler Peak, which stands 13,060 feet above sea level. The lowest trail is Mountain View Nature Trail, 6,825 feet above sea level. </li>
+        <li> Much of the landscape at Great Basin National Park was carved by glaciers, and some of them are still here. The Lehman rock glacier – a large mass of boulders cemented together by ice – is visible from the Glacier Trail and the Summit Trail. A single remnant of the true ice glaciers that formed the park 10,000 years ago resides in Lehman Cirque, just above the Lehman rock glacier.</li>
+        <li>At least 10 species of bats call Great Basin home, including Townshend's big-eared bat. This species has a wingspan of about 11 inches and is easily identified by its extremely long, flexible ears. All of the bat species here feed on insects. </li>
+        <li>Great Basin National Park has been inhabited for a very long time – from the fur trappers of the 19th century all the way back to the group that archeologists call the Paleo-Indians, who inhabited the area more than 12,000 years ago.</li>
+    </ul>
+
+    <h3 class="national-parks-heading">Hot Springs National Park</h3>
+    <ul class="lists">
+        <li>The spring water flowing from Hot Springs Mountain is quite safe to drink. The National Park Service has several places where visitors can fill their own bottles with the water.</li>
+        <li>The part of the park not within the city is mostly covered with forested hills and valleys. It is primarily made up of oak, hickory, and pine, with many other species as well. Wildflowers and flowering trees put on a beautiful show in the spring.</li>
+        <li>It is estimated that the water emanating from the hot springs is first heated a mile below the Earth’s surface, and slowly rises through a fault.</li>
+        <li>Hot Springs was a common place for baseball spring training in the late 1800s through around 1940. The players used the many bathhouses and the water’s reported curative powers to get ready for the season.</li>
+    </ul>
+
+    <h3 class="national-parks-heading">Arches National Park</h3>
+    <ul class="lists">
+        <li>Because of the darkness of the skies Arches National Park is popular with astronomers. The dark sky makes it possible to see a lot of stars at nigh</li>
+        <li>There are more than 2000 natural sandstone arches located in Arches National Park, which is the inspiration for the park's name.</li>
+        <li>Wildlife found in Arches National Park includes desert bighorn sheep, mountain lions, red foxes, western rattlesnakes, midget faded rattlesnakes, kangaroo rats, peregrine falcons, yucca moths, spade foot toads, and western collared lizards, as well as scrub jays and many varieties of sparrows.</li>
+        <li>Balanced Rock is a very large rock (three school buses in size) balanced naturally in the park.</li>
+    </ul>
+
+
+
+    <button id="ShowMe">Show Me</button>
+    <button id="yellow">Yellow</button>
 
     <script>
-        $( "button" ).click(function() {
+    // Show Me button
+        $( "#ShowMe" ).click(function() {
             $( ".invisible" ).toggle();
         });
+
+
+    // Highlight dt elements
         $("dt").click(function () {
-            $(this).css("background","magenta");
+            $(this).toggleClass("dt");
+            // $(this).css("background","magenta");
         });
+
+
+    // Yellow Highlight Button
+        $("#yellow").click(function() {
+            $('ul').each(function(index, element) {
+                $(element).children().last().toggleClass("highlight");
+            });
+        });
+
+    // All LI's under H3 Clicked Bold
+        $("h3").click(function() {
+            $(this).next().children().toggleClass("makeBold")
+        });
+
+    // First Li Blue
+        $("li").click(function() {
+            $(this).parent().children().first().css("color", "blue");
+        });
+
+
     </script>
 
 

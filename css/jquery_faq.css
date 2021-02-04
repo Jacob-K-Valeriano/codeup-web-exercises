@@ -1,0 +1,15 @@
+.dt {
+    background: magenta;
+}
+
+.highlight {
+    background: yellow;
+}
+
+.makeBold {
+    font-weight: bold;
+}
+
+.colorBlue {
+    color: blue;
+}
