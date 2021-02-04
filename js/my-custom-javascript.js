@@ -57,15 +57,43 @@ $(document).ready(function() {
         //    });
 
         // MOUSE EVENTS
+
+    // (function () {
+    //     let hdG = $('#hdg1');
+    //
+    //     let backGround = function () {
+    //         hdG.css('background-color', '');
+    //         $(this).css('background-color', 'purple');
+    //     }
+    //     hdG.click(backGround);
+    //
+    // })()
+    //
+
+
+
+
          $('#hdg1').click(
         function() {
             $(this).css('background-color', 'purple');
         });
 
-        $('p').dblclick(
-        function() {
+
+    (function () {
+        let paRs = $('p');
+
+        let makeLarger = function () {
+            paRs.css('font-size', '');
             $(this).css('font-size', '18px');
-        });
+        }
+        paRs.dblclick(makeLarger);
+
+    })()
+
+        // $('p').dblclick(
+        // function() {
+        //     $(this).css('font-size', '18px');
+        // });
 
         $('li').hover(
             function() {
@@ -75,6 +103,32 @@ $(document).ready(function() {
                 $(this).css('color', 'black');
             }
         );
+
+
+
+    $('h1, p, li').click(
+        function() {
+            $(this).css('font-size', '');
+        },
+        function() {
+            $(this).css('font-size', '30px');
+        }
+    );
+
+
+
+    // $('.hover').hover(
+    //     function() {
+    //         $(this).css('color', '', display, onpageshow());
+    //     },
+    //     function() {
+    //         $(this).css('color', 'yellow ');
+    //     }
+    // );
+    //
+
+
+
 
 
 });

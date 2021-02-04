@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>Konami Code</title>
+    <link rel="stylesheet" href="css/konami.css">
+</head>
+<body>
+    <div class="image">
+        <h1 class="hdg1">Konami Code</h1>
+        <p class="enterCode">UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT, B, A, ENTER!</p>
+        <img src="img/wallpaper.jpg" id="bg" alt="">
+    </div>
+    <audio class="my_audio" controls preload="none"><source src="/victory.mp3" type="audio/mpeg">
+    </audio>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            "use strict";
+            var userInput = "";
+            var konamiCode = "3838404037393739666513";
+            function reset() {
+                userInput = "";
+            }
+            $(document).keyup(function (event) {
+                userInput += (event.which);
+                console.log(event.which);
+                console.log(userInput);
+                console.log(konamiCode);
+                if (userInput === konamiCode) {
+                    reset();
+                    alert("You have added 30 lives!");
+                    $('.my_audio')[0].play()
+                }
+            });
+            $('.hdg1').css('color', 'blue');
+            $(' .enterCode ').css('color', 'red');
+
+        });
+    </script>
+</body>
+</html>
