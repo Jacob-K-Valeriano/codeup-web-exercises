@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Faq</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+    <h1>10 Faqs about Yellowstone</h1>
+
+    <dl>
+        <dt>#1 Where do I Make Reservations to Stay in Yellowstone?</dt>
+        <dd class="invisible" style="display: none">Yellowstone National Park Lodges operates the nine lodges in the park. All are open from late spring through fall, but only two are open in the winter: Old Faithful Snow Lodge and Mammoth Hot Springs Hotel. Be sure to make a reservation early!</dd>
+
+        <dt>#2 Where can I see Animals?</dt>
+        <dd class="invisible" style="display: none">Check at visitor centers for information about recent sightings.</dd>
+
+        <dt>Fact #3</dt>
+        <dd class="invisible" style="display: none">A large feline inhabiting Bodmin Moor.</dd>
+
+        <dt>#4 How did Yellowstone get its name?</dt>
+        <dd class="invisible" style="display: none">Yellowstone National Park is named after the Yellowstone River, the major river running through the park. According to French-Canadian trappers in the 1800s, they asked the name of the river from the Minnetaree tribe, who live in what is now eastern Montana</dd>
+
+        <dt>#5 Is Yellowstone the largest national park?</dt>
+        <dd class="invisible" style="display: none">No. More than half of Alaska’s national park units are larger, including Wrangell–St. Elias National Park and Preserve.</dd>
+
+        <dt>#6 What is the difference between a national park and a national forest?</dt>
+        <dd class="invisible" style="display: none">National parks are administered by the Department of the Interior and national forests by the Department of Agriculture</dd>
+
+        <dt>#7 How do you become a park ranger?</dt>
+        <dd class="invisible" style="display: none">iring is very competitive and is conducted through the Office of Personnel Management. Learn more about working with us.</dd>
+
+        <dt>#8 Can we swim in rivers and lakes?</dt>
+        <dd class="invisible" style="display: none">Swimming is not recommended because most lakes and streams are dangerously cold</dd>
+
+        <dt>#9 What is the highest peak in the park?</dt>
+        <dd class="invisible" style="display: none">Eagle Peak in the southeastern part of Yellowstone is the highest at 11,358 feet.</dd>
+
+        <dt>#10 What is the Continental Divide?</dt>
+        <dd class="invisible" style="display: none">Think of the Continental Divide as the crest of the continent. Theoretically, when precipitation falls on the west side of the Divide, it eventually reaches the Pacific Ocean.</dd>
+    </dl>
+
+
+    <button>Toggle</button>
+
+    <script>
+        $( "button" ).click(function() {
+            $( ".invisible" ).toggle();
+        });
+        $("dt").click(function () {
+            $(this).css("background","magenta");
+        });
+    </script>
+
+
+
+</body>
+</html>
