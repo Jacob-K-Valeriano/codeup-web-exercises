@@ -1,156 +1,77 @@
-// "use strict"
-//
-// var startLat = 21.3069
-// var startLong = 157.8583
-//
-//
-// function updateWeatherCardInfo(lat, lng) {
-//     $.get("http://api.openweathermap.org/data/2.5/forecast?appid=bd3ec46a553181ff8da235a51eb233fd&units=imperial&lat="
-//         + startLat + "&lon=" + startLong).done(function(data){
-//
-//
-//         $('#city-name').html("Selected City: " + data.city.name);
-//
-//
-// $('#mainTempMax1').html("<p>High & Low: " + roundTemperatures(data.list[0].main.temp_max)+ "&#8457 / "
-//     + roundTemperatures(data.list[0].main.temp_min) + "&#8457</p>");
-// $('#mainTempMin1').html("<p>Currently: " + roundTemperatures(data.list[0].main.temp) + "&#8457</p>");
-// $('#wind1').html("<p>Humidity: " + data.list[0].main.humidity + "%</p>");
-// $('#pressure1').html("<p>Wind Speed: " + data.list[0].wind.speed + "mph</p>");
-//
-//     });
-// }
-// //function call to trigger weather card builder
-// updateWeatherCardInfo(startLat, startLong);
+(function () {
+    "use strict";
 
+        var lat = 21.3069;
+        var long = -157.8583;
+        let searchInput = $("#input")
 
-"use strict";
+        weatherMap();
 
-// ===================================   ** global vars  **    ============================================== \\
+        // <!-------------------                        OPEN WEATHER REQUEST             ------------------------>
 
-// var lat = 29.42;
-// var lng = -98.49;
-
-// ===================== ** weather card builder with AJAX request to weatherAPI ** ============================== \\
-
-function updateWeatherCardInfo(lat, lng) {
-    $.get("http://api.openweathermap.org/data/2.5/forecast", {
-        APPID: OWM_TOKEN,
-        lat:    29.423017,
-        lon:   -98.48527,
-        units: "imperial"
-    }).done(function(data) {
-
-        // console log to view all data
-        console.log(data);
-
-        //displays the city name of wherever the marker is dropped
-        $('#city-name').html("Selected City: " + data.city.name);
-        // console.log(data.list[0].weather[0].icon);
-        //01d icon code
-
-        //refactor building cards by using a loop of some kind. DRY:(
-        //single day display card needed
-
-        // weather card info for day 1
-        $('#high-low-temp1').html("<p>High & Low: " + roundTemperatures(data.list[0].main.temp_max)+ "&#8457 / "
-            + roundTemperatures(data.list[0].main.temp_min) + "&#8457</p>");
-        $('#current-temp1').html("<p>Currently: " + roundTemperatures(data.list[0].main.temp) + "&#8457</p>");
-        $('#humidity1').html("<p>Humidity: " + data.list[0].main.humidity + "%</p>");
-        $('#windspeed1').html("<p>Wind Speed: " + data.list[0].wind.speed + "mph</p>");
-        // $('#weather-icon').css('background-image', "http://openweathermap.org/img/w/10d.png");
-
-        // weather card info for day 2
-        $('#high-low-temp2').html("<p>High & Low: " + roundTemperatures(data.list[8].main.temp_max) + "&#8457 / "
-            + roundTemperatures(data.list[8].main.temp_min) + "&#8457</p>");
-        $('#current-temp2').html("<p>Currently: " + roundTemperatures(data.list[8].main.temp) + "&#8457</p>");
-        $('#humidity2').html("<p>Humidity: " + data.list[8].main.humidity + "%</p>");
-        $('#windspeed2').html("<p>Wind Speed: " + data.list[8].wind.speed + "mph</p>");
-
-        //weather card info for day 3
-        $('#high-low-temp3').html("<p>High & Low: " + roundTemperatures(data.list[16].main.temp_max) + "&#8457 / "
-            + roundTemperatures(data.list[16].main.temp_min) + "&#8457</p>");
-        $('#current-temp3').html("<p>Currently: " + roundTemperatures(data.list[16].main.temp) + "&#8457</p>");
-        $('#humidity3').html("<p>Humidity: " + data.list[16].main.humidity + "%</p>");
-        $('#windspeed3').html("<p>Wind Speed: " + data.list[16].wind.speed + "mph</p>");
-
-        // weather card info for day 4
-        $('#high-low-temp4').html("<p>High & Low: " + roundTemperatures(data.list[24].main.temp_max) + "&#8457 / "
-            + roundTemperatures(data.list[24].main.temp_min) + "&#8457</p>");
-        $('#current-temp4').html("<p>Currently: " + roundTemperatures(data.list[24].main.temp) + "&#8457</p>");
-        $('#humidity4').html("<p>Humidity: " + data.list[24].main.humidity + "%</p>");
-        $('#windspeed4').html("<p>Wind Speed: " + data.list[24].wind.speed + "mph</p>");
-
-        // weather card info for day 5
-        $('#high-low-temp5').html("<p>High & Low: " + roundTemperatures(data.list[24].main.temp_max) + "&#8457 / "
-            + roundTemperatures(data.list[24].main.temp_min) + "&#8457</p>");
-        $('#current-temp5').html("<p>Currently: " + roundTemperatures(data.list[24].main.temp) + "&#8457</p>");
-        $('#humidity5').html("<p>Humidity: " + data.list[24].main.humidity + "%</p>");
-        $('#windspeed5').html("<p>Wind Speed: " + data.list[24].wind.speed + "mph</p>");
-
-    });
-}
-//function call to trigger weather card builder
-updateWeatherCardInfo(lat, lng);
-
-
-// =================================     ** google map functionality **      ================================= \\
-
-function initMap() {
-    var mapCanvas = document.getElementById('map-canvas');
-    var mapOptions = {
-        zoom: 13,
-        center: {
-            lat: lat,
-            lng: lng
+        function weatherMap() {
+            $.get("https://api.openweathermap.org/data/2.5/onecall", {
+                APPID: OWM_TOKEN,
+                lat: lat,
+                lon: long,
+                units: "imperial",
+                exclude: "minutely,hourly",
+            }).done(function (data) {
+                handleResponse(data)
+            });
         }
-    };
 
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-    var marker = new google.maps.Marker({
-        draggable: true,
-        position: {
-            lat: lat,
-            lng: lng
-        },
-        map: map
-    });
+        // Iterates through pulled data and generates cards with 5 day information
+
+        function handleResponse(data) {
+            let itemHTML = "";
+            for (let i = 0; i < 5; i++) {
+                let icon = data.daily[i].weather[0].icon
+                let date = data.daily[i].dt;
+                let date1 = new Date(date * 1000);
+                let date2 = date1.toLocaleDateString("en-US")
+                itemHTML += "<div class='weather-card one' >"
+                itemHTML += "<div class='top'>"
+                itemHTML += "<div class='wrapper'>"
+                itemHTML += "<h1 class='heading'>" + data.daily[i].name + "</h1>"
+                itemHTML += "<h3 class='location'>" + data.daily[i].weather[0].description + "</h3>"
+                itemHTML += "<p class='temp'>"
+                itemHTML += "<span class='tempValue'>"+ "<img src='http://openweathermap.org/img/wn/" + icon + ".png'>" + "</span>";
+                itemHTML += "<span class='deg'>"+ data.daily[i].temp.max + "°F" + " / " + data.daily[i].temp.min + "°F" +"</span>"
+                itemHTML += "</p>"
+                itemHTML += "</div>"
+                itemHTML += "</div>"
+                itemHTML += "<div class='bottom'>"
+                itemHTML += "<div class='wrapper'>"
+                itemHTML += "<ul class='forecast'>"
+                itemHTML += "<li class='active'>"
+                itemHTML += "<div class='bottom'>"
+                itemHTML += "<span class='wind'>"+ "Wind" + "</span>"
+                itemHTML += "<span class='lnr lnr-flag condition'>"
+                itemHTML += "<span class='windspeed'>"+ data.daily[i].wind_speed + "</span>"
+                itemHTML += "<span class='wind-speed'>" + "MPH" + "</span>"
+                itemHTML += "</span>"
+                itemHTML += "</li>"
+                itemHTML += "<li class='active'>"
+                itemHTML += "<span class='clouds'>"+ "Clouds" + "</span>"
+                itemHTML += "<span class='lnr lnr-cloud condition'>"
+                itemHTML += "<span class='cloudHeight'>" + data.daily[i].clouds + "</span>"
+                itemHTML += "<span class='footNotation'>" + "FT" + "</span>"
+                itemHTML += "</li>"
+                itemHTML += "<li class='active'>"
+                itemHTML += "<span class='pressure'>"+ "Pressure" + "</span>"
+                itemHTML += "<span class='lnr lnr-pilcrow condition'>"
+                itemHTML += "<span class='pressureNumber'>" + data.daily[i].pressure + "</span>"
+                itemHTML += "</li>"
+                itemHTML += "</ul>"
+                itemHTML += "</div>"
+                itemHTML += "</div>"
+                itemHTML += "</div>"
+            }
+            $("#post").html(itemHTML);
+        }
 
 
-    // event listener to store updated lat and lng when marker is dragged, info passed to
-    google.maps.event.addListener(marker, 'dragend', function(e){
-        var lat = marker.getPosition().lat();
-        var lng = marker.getPosition().lng();
 
-        updateWeatherCardInfo(lat, lng);
-    });
 
-}
-// ===========================  ** additional function features & EVENTS ** =================================== \\
-
-// function wrapped around weather temps to round to the nearest whole number
-function roundTemperatures(num){
-    return Math.round(num);
-}
-
-// click event to display 5 day forecast
-$('#display-5-day-forecast').on('click', function(){
-    $('div .card:hidden').show();
-    $('#single-day-display').hide();
-});
-
-// click event to revert back to 3 day forecast
-$('#display-3-day-forecast').on('click', function(){
-    $('#day-four, #day-five').hide();
-    $('#day-one, #day-two, #day-three').show();
-    $('#single-day-display').hide();
-});
-
-// click event for single day display
-$('#single-day-display-btn').click(function(){
-    $('#day-one,#day-two, #day-three, #day-four, #day-five').hide();
-    $('#single-day-display').show();
-});
-
-// slide up feat for weather buttons
-// $('#weather-feat-1').
+}());

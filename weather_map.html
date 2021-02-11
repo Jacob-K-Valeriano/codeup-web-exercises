@@ -1,279 +1,78 @@
 <!DOCTYPE>
 <html lang="en">
-
 <head>
     <title>Weather</title>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/keys.js"></script>
+    <script src="js/weather_map.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="css/weather.css">
-    <script href="keys.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.0/mapbox-gl.css" rel="stylesheet"/>
-    <style>
-        #map {
-            top: 0;
-            bottom: 0;
-            width: 120vh;
-            height: 70vh;
-            margin: 15vh auto;
-            border: 5px solid teal
-        }
-    </style>
+
+<!--    <style>-->
+<!--        #map {-->
+<!--            top: 0;-->
+<!--            bottom: 0;-->
+<!--            width: 120vh;-->
+<!--            height: 70vh;-->
+<!--            margin: 15vh auto;-->
+<!--            border: 5px solid teal-->
+<!--        }-->
+
+<!--    </style>-->
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <h1 class="text-left" id="headingW">WEATHER</h1>
 
-
-
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="weather-card one">
-                <div class="top">
-                    <div class="wrapper">
-                        <div class="mynav">
-                            <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
-                            <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
-                        </div>
-                        <h1 class="heading">Forecasted 1</h1>
-                        <h3 class="location">City</h3>
-                        <p class="temp">
-                            <span class="temp-value">tmp 1</span>
-                            <span class="deg">0</span>
-                            <a href="javascript:;"><span class="temp-type">F</span></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="wrapper">
-                        <ul class="forecast">
-                            <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
-                            <li class="active">
-                                <span class="wind">Wind</span>
-                                <span class="lnr lnr-flag condition">
-									<span class="windSpeed">45<span class="wind-speed">Mph</span></span>
-								</span>
-                            </li>
-                            <li>
-                                <span class="clouds">Clouds</span>
-                                <span class="lnr lnr-cloud condition">
-									<span class="cloudLayer">OVC<span class="cloudHeight">4500</span><span class="footNotation">FT</span></span>
-								</span>
-                            </li>
-                            <li>
-                                <span class="pressure">Pressure</span>
-                                <span class="lnr lnr-pilcrow condition">
-									<span class="pressureNumber">29.92<span class="inCh">"</span><span class="temp-type">Hg</span></span>
-								</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
+    </nav>
+    <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+            <input id="type-in" class="form-control mr-sm-2 mx-3" type="search" placeholder="Search" aria-label="Search">
+            <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+<!--    <div id="display-map" class="d-flex justify-content-around mt-5"></div>-->
 
-        <div class="col">
-            <div class="weather-card rain">
-                <div class="top">
-                    <div class="wrapper">
-                        <div class="mynav">
-                            <a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
-                            <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
-                        </div>
-                        <h1 class="heading">Forecasted 2</h1>
-                        <h3 class="location">City</h3>
-                        <p class="temp">
-                            <span class="temp-value">tmp 2</span>
-                            <span class="deg">0</span>
-                            <a href="javascript:;"><span class="temp-type">F</span></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="wrapper">
-                        <ul class="forecast">
-                            <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
-                            <li class="active">
-                                <span class="wind">Wind</span>
-                                <span class="lnr lnr-flag condition">
-									<span class="windSpeed">45<span class="wind-speed">Mph</span></span>
-								</span>
-                            </li>
-                            <li>
-                                <span class="clouds">Clouds</span>
-                                <span class="lnr lnr-cloud condition">
-									<span class="cloudLayer">OVC <span class="cloudHeight">4500 </span><span class="footNotation">FT</span></span>
-								</span>
-                            </li>
-                            <li>
-                                <span class="pressure">Pressure</span>
-                                <span class="lnr lnr-pilcrow condition">
-									<span class="pressureNumber">29.92<span class="inCh">"</span><span class="temp-type">Hg</span></span>
-								</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--    <div id='mapbox-map' style='width: 90%; height: 70vh; margin: 5vh auto;'></div>-->
+    <div id="mapbox-map"></div>
+
+
+<!-------------------                           GENERATED FORECAST              ------------------------>
+    <div class="row " id="post">
     </div>
-</div>
 
-<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
-<link rel="stylesheet"
-      href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css"
-      type="text/css"/>
 
-<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-<div id="map"></div>
-<script src="js/keys.js"></script>
-<script>
-    // TO MAKE THE MAP APPEAR YOU MUST
-    // ADD YOUR ACCESS TOKEN FROM
-    // https://account.mapbox.com
-    mapboxgl.accessToken = MAPBOX_TOKEN;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-157.83, 21.280],
-        zoom: 12
-    });
+<!-------------------                        MAPBOX/GEOCODE              ------------------------>
+    <script>
+        // TO MAKE THE MAP APPEAR YOU MUST
+        // ADD YOUR ACCESS TOKEN FROM
+        // https://account.mapbox.com
+        mapboxgl.accessToken = MAPBOX_TOKEN;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-157.83, 21.280],
+            zoom: 12
+        });
 
-    map.addControl(
-        new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
-    );
-
-    map.on('load', function () {
-        map.loadImage(
-            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-            // Add an image to use as a custom marker-->
-            function (error, image) {
-                if (error) throw error;
-                map.addImage('custom-marker', image);
-
-                map.addSource('places', {
-                    'type': 'geojson',
-                    'data': {
-                        'type': 'FeatureCollection',
-                        'features': [
-                            {
-                                'type': 'Feature',
-                                'properties': {
-                                    'description':
-                                        '<strong>Gen Korean BBQ</strong><img src="img/gen.png" style="width: 75%"><p>(1450 Ala Moana Blvd #4250),<br> Local Chain offereing Korean BBQ grilled tabelside & ban-chan in trendy a trendy, modern setting.</p>'
-                                },
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [-157.84216, 21.29109],
-                                }
-                            },
-                            {
-                                'type': 'Feature',
-                                'properties': {
-                                    'description':
-                                        '<strong>Doraku Izakaya and Sushi</strong><img src="img/doraku.png" style="width: 75%"><p>(1009 Kapiolani Blvd)<br> Stylish choice for sushi and Japanese small plates plus a broad sake selection in sleek, vibrant digs.</p>'
-                                },
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [-157.82905, 21.27961]
-                                }
-                            },
-                            {
-                                'type': 'Feature',
-                                'properties': {
-                                    'description':
-                                        '<strong>Tikis Grill & Bar</strong><img src="img/tikis.png" style="width: 75%"><p>(2570 Kalakaua Ave.)<br>Aston Waikiki Beach Hotels festive, oceanside spot for Hawaiian fare, cocktails and live music</p>'
-                                },
-                                'geometry': {
-                                    'type': 'Point',
-                                    'coordinates': [-157.82291, 21.27309]
-                                }
-                            },
-
-                        ]
-                    }
-                });
-                // Add a layer showing the places.
-                map.addLayer({
-                    'id': 'places',
-                    'type': 'symbol', 'source': 'places',
-                    'layout': {
-                        'icon-image': 'custom-marker',
-                        'icon-allow-overlap': true
-                    }
-                });
-            }
+        map.addControl(
+            new MapboxGeocoder({
+                accessToken: mapboxgl.accessToken,
+                mapboxgl: mapboxgl
+            })
         );
 
-        // Create a popup, but don't add it to the map yet.-->
-        var popup = new mapboxgl.Popup({
-            closeButton: false,
-            closeOnClick: false
-        });
-
-        map.on('click', 'places', function (e) {
-            // Change the cursor style as a UI indicator.
-            map.getCanvas().style.cursor = 'pointer';
-
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var description = e.features[0].properties.description;
-
-            // Ensure that if the map is zoomed out such that multiple-->
-            // copies of the feature are visible, the popup appears-->
-            // over the copy being pointed to.-->
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-
-            // Populate the popup and set its coordinates
-            // based on the feature found.
-            popup.setLngLat(coordinates).setHTML(description).addTo(map);
-        });
-
-        // Change the cursor to a pointer when the mouse is over the places layer.
-        map.on('mouseenter', 'places', function () {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-
-        map.on('mouseleave', 'places', function () {
-            map.getCanvas().style.cursor = '';
-            popup.remove();
-        });
-    });
-
-    map.addControl(new mapboxgl.NavigationControl());
 
 
-    map.addlayer('places')._data.features.forEach(function (feature) {
-        // do something
-    });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
