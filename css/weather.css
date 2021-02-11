@@ -4,6 +4,55 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: #112233;
 }
+.navbar-custom {
+    background-color: #7d1059;
+
+}
+#map {
+    top: 0;
+    bottom: 0;
+    width: 75vh;
+    height: 40vh;
+    margin: 5vh auto;
+    border: 5px solid #7d1059;
+}
+
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+#map {
+    top: 0;
+    bottom: 0;
+    width: 75vh;
+    height: 40vh;
+    margin: 5vh auto;
+    border: 5px solid #7d1059;
+}
+
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
 
 .weather-card {
     margin: 60px auto;
