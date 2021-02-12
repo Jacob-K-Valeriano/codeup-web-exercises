@@ -235,7 +235,7 @@ function locationWeather () {
 
 }
 
-//---------------- INITIAL WEATHER ON LOAD ----------------------//>
+// // ---------------- INITIAL WEATHER ON LOAD ----------------------//>
 // function starterWeather () {
 //     var weatherForecast = 'https://api.openweathermap.org/data/2.5/onecall';
 //     var weatherOptions = {
@@ -244,5 +244,9 @@ function locationWeather () {
 //         appid: OPEN_WEATHER_APPID,
 //         exclude: 'minutely, current, hourly',
 //         units: 'imperial'
+//
+//
+//     }
+//
 //
 //     };
