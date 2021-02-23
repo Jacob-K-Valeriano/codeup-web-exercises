@@ -250,25 +250,25 @@ for (var i = 0; i < names.length; i += 1) {
 
 // ES5 way...
 
-// var dog = {
-//     breed: breed,
-//     age: age,
-//     name: name,
-//     isCute: isCute
-// };
-// //
-// console.log(dog.name);
+var dog = {
+    breed: breed,
+    age: age,
+    name: name,
+    isCute: isCute
+};
+//
+console.log(dog.name);
 
 // ES6 way...
 
-// const dog = {
-//     breed,
-//     age,
-//     name,
-//     isCute
-// };
-// //
-// console.log(dog.name);
+const dog = {
+    breed,
+    age,
+    name,
+    isCute
+};
+//
+console.log(dog.name);
 
 
 // ============== Object / Array Destructuring
