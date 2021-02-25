@@ -29,6 +29,17 @@
 
 
 
+
+
+$(#'content-toggle>li').dblclick(function() {
+    var currentContent = parseInt($(this).css('font-size'));
+    $(this).css('font-size', currentContent*2);
+});
+
+
+
+
+
     // (function() {
     //     var addDiv = $('#sum-output')
     //     var i = $('#sum-output').size() + 1;
