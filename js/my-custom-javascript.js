@@ -75,20 +75,11 @@ $(document).ready(function() {
 
          $('#hdg1').click(
         function() {
-            $(this).css('background-color', 'purple');
+            $(this).css('background-color', 'red');
         });
 
 
-    (function () {
-        let paRs = $('p');
 
-        let makeLarger = function () {
-            paRs.css('font-size', '');
-            $(this).css('font-size', '18px');
-        }
-        paRs.dblclick(makeLarger);
-
-    })()
 
         // $('p').dblclick(
         // function() {
@@ -104,7 +95,16 @@ $(document).ready(function() {
             }
         );
 
+    (function () {
+        let paRs = $('p');
 
+        let makeLarger = function () {
+            paRs.css('font-size', '');
+            $(this).css('font-size', '18px');
+        }
+        paRs.dblclick(makeLarger);
+
+    })()
 
     $('h1, p, li').click(
         function() {
